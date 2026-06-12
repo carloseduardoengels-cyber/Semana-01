@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/ccc2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Engels | Dev Full Stack</title>
+    <link rel="icon" href="https://fav.farm/" />
+     <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <nav style="background-color: #1a252f; padding: 15px; text-align: center;">
+        <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">Início</a>
+        <a href="Sobre.html" style="color: white; margin: 0 15px; text-decoration: none;">Sobre</a>
+        </nav>
+    <div class="header" style="background-color: #2c3e50; color: white; text-align: 40px; border-radius: 10px;">
+    <h1 style="color: white; cursor: pointer;" onclick="mudarCor()">Carlos Engels</h1>
+    <p>Estudante de ADS e futuro desenvolvedor Full Stack.</p>
+    <a href="Sobre.html" style="color: white;">Sobre mim</a> 
+    </div>
+    <h2>Meus hobbies</h2>
+    <ul>
+        <li>Games</li>
+        <li>Investimentos</li>
+        <li>Tecnologia</li>
+    </ul>
+    <hr>
+    <a href="https://github.com">Meu futuro GitHub</a>
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="100">
+    <h2>Contato</h2>
+    <p>Email: carlosengels@email.com</p>
+    <p>Cidade: Brasil</p>
+    <p>Status: <strong>Disponível para oportunidades</strong></p>
+    <p><em>Em busca do primeiro emprego como dev</em></p>
+    <hr>
+    <h2>Minhas metas</h2>
+    <table border="1"
+    <tr>
+    <th>Meta</th>
+    <th>Prazo</th>
+    </tr>
+    <tr>
+        <td>Aprender HTML</td>
+        <td>Semana 3</td>
+    </tr>
+    <tr>
+        <td>Aprender CSS</td>
+        <td>Semana 8</td>
+    </tr>
+    <tr>
+        <td>Primeiro emprego</td>
+        <td>2027</td>
+        </tr>
+    <tr>
+    <td>Aprender React</td>
+    <td>2027</td>
+</tr>
+<tr>
+<td>Aprender Node.js</td>
+<td>2027</td>
+</tr>
+</table>
+<hr>
+<h2>Fale comigo</h2>
+<form>
+    <p>Nome: <input type="text" placeholder="Seu nome"></p>
+    <p>Email: <input type="email" placeholder="Seu email"></p>
+    <p>Mensagem: <textarea placeholder="Escreva aqui..."></textarea></p>
+    <p><button>Enviar</button></p>
+</form>
+<hr>
+<h2>Habilidades</h2>
+<div class="cards">
+    <div class="card">HTML</div>
+    <div class="card">CSS</div>
+    <div class="card">JavaScript</div>
+    <div class="card">React</div>
+    <div class="card">Node.js</div>
+    </div>
+    <script>
+        function mudarCor() {
+            const header = document.querySelector('.header');
+            if (header.style.backgroundColor === 'rgb(231, 76, 60)') {
+                header.style.backgroundColor = '#2c3e50';
+            } else {
+                header.style.backgroundColor = '#e74c3c';
+            }
+        }
+        alert('Bem-vindo ao portfólio de Carlos Engels!');
+        </script>
+        <hr>
+        <h2>Projetos</h2>
+        <div class="grid">
+        <div class="projeto">Projeto 1 - Portfólio</div>
+        <div class="projeto">Projeto 2 - Em breve</div>
+        <div class="projeto">Projeto 3 - Em breve</div>
+        <div class="projeto">Projeto 4 - Em breve</div>
+        </div> 
+        <footer>
+            <p>© 2026 Carlos Engels - Desenvolvedor Full Stack</p>
+        </footer>        
+</body>
+</html>
