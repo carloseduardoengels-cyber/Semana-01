@@ -57,19 +57,20 @@ transition: all 0.3s ease;
     }
     .card:hover {
         background-color: #e74c3c;
+        color: white;
         transform: translateY(-5px);
-        transition: all 0.3s ease
+        transition: all 0.3s ease;
         cursor: pointer;
     }
     .header {
         text-align: center;
         padding: 40px;
-        background-color: #2c3e50
+        background-color: #2c3e50;
         border-radius: 10px;
         margin-bottom: 30px;
     }
     .header h1 {
-        color: white !important!
+        color: white !important;
     }
     .header h1 {
         font-size: 48px;
@@ -130,7 +131,7 @@ transition: all 0.3s ease;
         animation: fadeIn 1s ease;
     }
     .grid {
-        animation: fadeIn 1.2 ease;
+        animation: fadeIn 1.2s ease;
     }
     table {
         border-collapse: collapse;
