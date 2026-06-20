@@ -153,3 +153,22 @@ transition: all 0.3s ease;
         margin-top: 40px;
         border-radius: 8px;
     }
+    body.dark-mode {
+        background-color: #1a1a2e;
+        color: #e0e0e0;
+    }
+    body.dark-mode .header {
+    background-color: #16213e;
+    }
+    body.dark-mode .card {
+        background-color: #16213e;
+    }
+    body.dark-mode .projeto {
+        background-color: #16213e;
+    }
+    body.dark-mode table {
+        color: #e0e0e0;
+    }
+    body.dark-mode footer {
+        background-color: #16213e;
+    }
