@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="=pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Busca Cep | Carlos Engels</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav style="background-color: #1a252f; padding: 15px; text-align: center;">
+        <a href="index.html" style="color: white; margin: 0 10px;">Início</a>
+        <a href="sobre.html" style="color: white; margin: 0 10px;">Sobre</a>
+        <button onclick="alternarTema()" id="botaoTema" style="background: none; border: 1px solid white; color: white; padding: 5px 10px; cursor: pointer;">🌙</button>
+        </nav>
+
+        <div class="header">
+        <h1>Busca de CEP</h1>
+        <p>Consulte endereços pelo CEP</p>
+        </div>
+        <div style="max-width: 500px; margin: 30px auto; padding: 0 20px;">
+        <input type="text" id="inputCep" placeholder="Digite o CEP (ex: 78000000)"
+            style="padding: 10px; width: 70%; font-size: 16px;">
+        <button onclick="buscarCep()"
+            style="padding: 10px 20px; margin-left: 10px; background: #e74c3c; color: white; border: none; cursor: pointer;">
+            buscar
+        </button>
+
+        <div id="resultado" style="margin-top: 30px;"></div>
+    </div>
+
+    <footer>
+        <p>© 2026 Carlos Engels - Desenvolvedor Full Stack</p>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="cep.js"></script>
+    </body>
+</html>

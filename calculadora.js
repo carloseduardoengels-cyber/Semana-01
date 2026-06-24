@@ -22,4 +22,4 @@ function calcular() {
         'Total em juros: R$ ' + totalJuros.toFixed(2).replace('.', ',');
 
     document.getElementById('resultado').style.display = 'block';
-}
+}   

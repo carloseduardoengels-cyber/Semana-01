@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas | Carlos Engels</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav style="background-color: #1a252f; padding: 15px; text-align: center;">
+    <a href="index.html" style="color: white; margin: 0 10px;">Início</a>
+    <a href="sobre.html" style="color: white; margin: 0 10px;">Sobre</a>
+    <button onclick="alternarTema()" id="botaoTema" style="background: none; border: 1px solid white; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-left: 15px;">🌙</button>
+</nav>
+
+<div class="header">
+    <h1>Lista de Tarefas</h1>
+    <p>Organize seu dia</p>
+</div>
+
+<div style="margin: 20px 0;">
+    <input type="text" id="inputTarefa" placeholder="Digite uma tarefa..." style="padding: 10px; width: 70%; border: 1px solid #ccc; border-radius: 5px;">
+    <button onclick="adicionarTarefa()" style="padding: 10px 20px; margin-left: 10px;">Adicionar</button>
+</div>
+
+<div style="margin: 15px 0;">
+    <button onclick="filtrar('todas')">Todas</button>
+    <button onclick="filtrar('pendentes')">Pendentes</button>
+    <button onclick="filtrar('concluídas')">Concluídas</button>
+</div>
+
+<ul id="listaTarefas" style="list-style: none; padding: 0;"></ul>
+
+<footer>
+    <p>© 2026 Carlos Engels - Desenvolvedor Full Stack</p>
+</footer>
+
+<script src="index.js"></script>
+<script src="tarefas.js"></script>
+</body>
+</html>
