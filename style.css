@@ -28,9 +28,12 @@ transition: all 0.3s ease;
     table {
         width: 100%;
         border-collapse: collapse;
+        color: inherit;
     }
     td, th {
-        padding: 8px;
+        padding: 10px;
+        border: 1px solid #555;
+        color: inherit;
     }
     .destaque {
         background-color: #2c3e50;
@@ -172,4 +175,11 @@ transition: all 0.3s ease;
     }
     body.dark-mode footer {
         background-color: #16213e;
+    }
+    body.dark-mode th {
+        background-color: #16213e;
+        color: #e0e0e0;
+    }
+    body.dark-mode td {
+        color: #e0e0e0;
     }
