@@ -202,8 +202,8 @@ transition: all 0.3s ease;
 
     body.dark-mode input,
     body.dark-mode textarea {
-        background-color: #16213e !important;
-        color: #e0e0e0 !important;
+        background-color: #16213e;
+        color: #e0e0e0;
         border: 1px solid #444;
     }
 
@@ -228,4 +228,15 @@ nav {
 
 body {
     padding-top: 70px;
+}
+
+.projeto {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.projeto.visivel {
+    opacity: 1;
+    transform: translateY(0);
 }

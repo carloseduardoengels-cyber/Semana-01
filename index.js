@@ -25,3 +25,14 @@
             document.body.classList.add('dark-mode');
             document.getElementById('botaoTema').textContent = '☀️';
         }
+        const projetos = document.querySelectorAll('.projeto');
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visivel');
+                }
+            });
+        });
+        projetos.forEach(function(projeto) {
+            observer.observe(projeto);
+        });
