@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas | Carlos Engels</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav style="background-color: #1a252f; padding: 15px; text-align: center;">
+        <a href="index.html" style="color: white; margin: 0 10px;">Início</a>
+        <a href="sobre.html" style="color: white; margin: 0 10px;">Sobre</a>
+        <button onclick="alternarTema()" id="botaoTema" style="background: none; border: 1px solid white; color: white; padding: 5px 10px; cursor: pointer;">🌙</button>
+    </nav>
+
+    <div class="header">
+        <h1>Conversor de Moedas</h1>
+        <p>Taxas de câmbio em tempo real</p>
+    </div>
+
+    <div style="max-width: 500px; margin: 30px auto; padding: 0 20px;">
+        <input type="number" id="valor" placeholder="Digite o valor"
+            style="padding: 10px; width: 100%; font-size: 16px; margin-bottom: 10px;">
+
+        <select id="moedaOrigem" style="padding: 10px; width: 48%; font-size: 16px;">
+            <option value="USD">USD - Dólar</option>
+            <option value="BRL">BRL - Real</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - Libra</option>
+        </select>
+
+        <select id="moedaDestino" style="padding: 10px; width: 48%; margin-left: 4%; font-size: 16px;">
+            <option value="BRL">BRL - Real</option>
+            <option value="USD">USD - Dólar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - Libra</option>
+        </select>
+
+        <button onclick="converter()"
+            style="padding: 10px 20px; margin-top: 10px; background: #e74c3c; color: white; border: none; cursor: pointer; width: 100%; font-size: 16px;">
+            Converter
+        </button>
+
+        <div id="resultado" style="margin-top: 30px;"></div>
+    </div>
+
+    <footer>
+        <p>© 2026 Carlos Engels - Desenvolvedor Full Stack</p>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="conversor.js"></script>
+</body>
+</html>
