@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Busca de CEP | Carlos Engels</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav style="background-color: #1a252f; padding: 15px; text-align: center;">
+        <a href="index.html" style="color: white; margin: 0 10px;">Início</a>
+        <a href="sobre.html" style="color: white; margin: 0 10px;">Sobre</a>
+        <button onclick="alternarTema()" id="botaoTema" style="background: none; border: 1px solid white; padding: 5px 10px; cursor: pointer;">🌙</button>
+        </nav>
+
+        <div class="header">
+            <h1>📍 Busca de CEP</h1>
+            <p>Consulte endereços pelo CEP</p>
+        </div>
+
+        <div style="max-width: 800px; margin: 30px auto; padding: 0 20px;">
+
+            <div class="destaque">
+                <h2>Sobre o projeto</h2>
+                <p>Aplicação que consulta endereços em tempo real usando a API pública ViaCEP.</p>
+            </div>
+
+            <h2>O que aprendi</h2>
+            <ul>
+                <li>Consumo de API REST com fetch()</li>
+                <li>Tratamento de erros .catch()</li>
+                <li>Programação assícrona com .then()</li>
+                <li>Validação de entrada do usuário</li>
+            </ul>
+
+            <div style="margin-top: 30px; display: flex; gap: 15px;">
+                <a href="cep.html" class="projeto" style="text-decoration: none;">🚀 Ver projeto</a>
+                <a href="https://github.com/carloseduardoengels-cyber/Semana-01" target="_blank" class="projeto" style="text-decoration: none;">💻 Ver código</a>
+            </div>
+
+            </div>
+
+            <footer>
+                <p>© 2026 Carlos Engels - Desenvolvedor Full Stack</p>
+            </footer>
+
+            <script src="index.js"></script>
+        </body>
+        </html>
