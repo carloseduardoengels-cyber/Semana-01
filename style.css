@@ -1,6 +1,7 @@
 :root {
     --cor-primaria: #2c3e50;
-    --cor-destaque: #e74c3c;
+    --cor-destaque: #c0392b;        /* AJUSTE: vermelho mais escuro (contraste 5,4:1 com texto branco) */
+    --cor-destaque-hover: #a93226;  /* AJUSTE: hover dos botoes */
     --cor-fundo: #f0f4f8;
 }
 body {
@@ -15,10 +16,10 @@ h1 {
     color: #2c3e50;
 }
 h2 {
-    color: #e74c3c;
+    color: #2c3e50;                 /* AJUSTE: era vermelho; vermelho fica so para botoes e hover */
 }
 button {
-    background-color: #e74c3c;
+    background-color: var(--cor-destaque);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -27,11 +28,11 @@ button {
     transition: all 0.3s ease;
 }
 button:hover {
-    background-color: #c0392b;
+    background-color: var(--cor-destaque-hover);
     transform: scale(1.05);
 }
 a:hover {
-    color: #e74c3c;
+    color: var(--cor-destaque);
 }
 table {
     width: 100%;
@@ -65,7 +66,7 @@ th {
     border-radius: 8px;
 }
 .card:hover {
-    background-color: #e74c3c;
+    background-color: var(--cor-destaque);
     color: white;
     transform: translateY(-5px);
     transition: all 0.3s ease;
@@ -99,7 +100,7 @@ nav {
     background-color: #1a252f;
 }
 nav a:hover {
-    color: #e74c3c !important;
+    color: #e74c3c !important;      /* mantido: vermelho claro tem bom contraste sobre o nav escuro */
     transition: color 0.3s ease;
 }
 .grid {
@@ -120,7 +121,7 @@ nav a:hover {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .projeto:hover {
-    background-color: #e74c3c;
+    background-color: var(--cor-destaque);
     color: white;
     transform: scale(1.03);
     cursor: pointer;
@@ -218,6 +219,18 @@ body.dark-mode .projeto,
 body.dark-mode footer {
     background-color: #16213e;
 }
+/* AJUSTE: titulos legiveis no escuro (o azul #2c3e50 some no fundo escuro) */
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #e0e0e0;
+}
+/* AJUSTE: links comuns legiveis no escuro (o azul padrao do navegador nao le bem) */
+body.dark-mode a {
+    color: #7fb3ff;
+}
+body.dark-mode a:hover {
+    color: #e74c3c;
+}
 body.dark-mode table,
 body.dark-mode td {
     color: #e0e0e0;
@@ -247,12 +260,12 @@ body.dark-mode .botoes a {
     border-color: #e0e0e0;
 }
 body.dark-mode .botoes a:hover {
-    background-color: #e74c3c;
-    border-color: #e74c3c;
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
     color: white;
 }
 
-/* Celular (fica por último para vencer as regras acima) */
+/* Celular (fica por ultimo para vencer as regras acima) */
 @media (max-width: 600px) {
     .cards {
         flex-direction: column;
