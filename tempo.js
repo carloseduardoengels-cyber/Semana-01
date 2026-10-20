@@ -1,46 +1,68 @@
-var chave = '2d017d499f925e140663134486c23188';
 
 function buscarTempo() {
-    var cidade = document.getElementById('inputCidade').value;
-    var resultado = document.getElementById('resultado');
+  var cidade = document.getElementById('inputCidade').value.trim();
+  var resultado = document.getElementById('resultado');
 
-    if (!cidade) {
-        resultado.innerHTML = '<p style="color: red;">Digite o nome de uma cidade.</p>';
-        return;
-    }
+  if (!cidade) {
+    resultado.innerHTML =
+      '<p style="color: red;">Digite o nome de uma cidade.</p>';
+    return;
+  }
 
-    resultado.innerHTML = '<p>Buscando...</p>';
+  resultado.innerHTML = '<p>Buscando previsão...</p>';
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&appid=' + chave + '&units=metric&lang=pt_br')
+  var urlCidade =
+    'https://geocoding-api.open-meteo.com/v1/search?name=' +
+    encodeURIComponent(cidade) +
+    '&count=1&language=pt&format=json';
+
+  fetch(urlCidade)
+    .then(function(response) {
+      if (!response.ok) throw new Error();
+      return response.json();
+    })
+    .then(function(dadosCidade) {
+      if (!dadosCidade.results || dadosCidade.results.length === 0) {
+        throw new Error('Cidade não encontrada.');
+      }
+
+      var local = dadosCidade.results[0];
+
+      var urlClima =
+        'https://api.open-meteo.com/v1/forecast?latitude=' +
+        local.latitude +
+        '&longitude=' + local.longitude +
+        '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m' +
+        '&timezone=auto';
+
+      return fetch(urlClima)
         .then(function(response) {
-            return response.json();
+          if (!response.ok) throw new Error();
+          return response.json();
         })
         .then(function(dados) {
-            if (dados.cod === '404') {
-                resultado.innerHTML = '<p style="color: red;">"Cidade não encontrada.</p>';
-                return;
-        }
+          return { local: local, clima: dados.current };
+        });
+    })
+    .then(function(dados) {
+      var local = dados.local;
+      var clima = dados.clima;
 
-        var icone = dados.weather[0].icon;
-        var descricao = dados.weather[0].description;
-        var temp = dados.main.temp.toFixed(1);
-        var sensacao = dados.main.feels_like.toFixed(1);
-        var umidade = dados.main.humidity;
-        var vento = dados.wind.speed;
-
-        resultado.innerHTML =
+      resultado.innerHTML =
         '<div style="background: #2c3e50; color: white; padding: 20px; border-radius: 8px; text-align: center;">' +
-        '<h2>' + dados.name + ', ' + dados.sys.country + '</h2>' +
-        '<img src="https://openweathermap.org/img/wn/' + icone + '@2x.png">' +
-        '<p style="font-size: 48px; font-weight: bold;">' + temp + '°C</p>' +
-        '<p style="text-transform: capitalize;">' + descricao + '</p>' +
-        '<p>Sensação térmica: ' + sensacao + '°C</p>' +
-        '<p>Umidade: ' + umidade + '%</p>' +
-        '<p>Vento: ' + vento + ' m/s</p>' +
+        '<h2>' + local.name +
+        (local.country ? ', ' + local.country : '') + '</h2>' +
+        '<p style="font-size: 48px; font-weight: bold;">' +
+        clima.temperature_2m + '°C</p>' +
+        '<p>Sensação térmica: ' +
+        clima.apparent_temperature + '°C</p>' +
+        '<p>Umidade: ' + clima.relative_humidity_2m + '%</p>' +
+        '<p>Vento: ' + clima.wind_speed_10m + ' km/h</p>' +
+        '<p>Código meteorológico: ' + clima.weather_code + '</p>' +
         '</div>';
-
     })
     .catch(function() {
-        resultado.innerHTML = '<p style="color: red;">Erro ao buscar dados. tente novamente.</p>';
+      resultado.innerHTML =
+        '<p style="color: red;">Não foi possível consultar o clima. Verifique a cidade e tente novamente.</p>';
     });
 }
