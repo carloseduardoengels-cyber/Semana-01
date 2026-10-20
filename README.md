@@ -19,7 +19,7 @@ Olá! Sou estudante de Análise e Desenvolvimento de Sistemas e estou aprendendo
 
 ## 👀 Como visualizar
 
-Abra [`index.html`](index.html) em um servidor local ou acesse a versão publicada, se disponível. Os projetos que consultam APIs precisam de conexão com a internet.
+Acesse a [versão publicada do portfólio](https://carloseduardoengels-cyber.github.io/Semana-01/) ou abra [`index.html`](index.html) em um servidor local. Os projetos que consultam APIs precisam de conexão com a internet.
 
 ## 📫 Contato
 
