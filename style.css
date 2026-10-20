@@ -116,8 +116,9 @@ nav a:hover {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
+    /* Os links de ação não passam pelo observador dos cartões; mantenha-os visíveis. */
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .projeto:hover {
