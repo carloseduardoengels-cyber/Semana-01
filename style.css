@@ -176,6 +176,15 @@ label {
     flex-direction: column;
     gap: 10px;
 }
+.card-projeto.observada {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.card-projeto.observada.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
 .card-projeto h3 { margin: 0; }
 .card-projeto p { margin: 0; }
 .tags {

@@ -25,14 +25,18 @@
             document.body.classList.add('dark-mode');
             document.getElementById('botaoTema').textContent = '☀️';
         }
-        const projetos = document.querySelectorAll('.projeto');
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visivel');
-                }
+        const projetos = document.querySelectorAll('.card-projeto');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visivel');
+                        observer.unobserve(entry.target);
+                    }
+                });
             });
-        });
-        projetos.forEach(function(projeto) {
-            observer.observe(projeto);
-        });
+            projetos.forEach(function(projeto) {
+                projeto.classList.add('observada');
+                observer.observe(projeto);
+            });
+        }
