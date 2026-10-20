@@ -1,4 +1,10 @@
-let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+let tarefasSalvas = [];
+try {
+    tarefasSalvas = JSON.parse(localStorage.getItem('tarefas') || '[]');
+} catch (erro) {
+    localStorage.removeItem('tarefas');
+}
+let tarefas = Array.isArray(tarefasSalvas) ? tarefasSalvas : [];
 let filtroAtual = 'todas';
 
 function salvar() {
@@ -19,12 +25,26 @@ function renderizar() {
 tarefasFiltradas.forEach(function(tarefa) {
     const li = document.createElement('li');
     li.style.cssText = 'padding: 10px; margin: 5px 0; background: #2c3e50; color: white; border-radius: 5px; display: flex; justify-content: space-between;';
-    li.innerHTML =
-    '<span style="text-decoration: ' + (tarefa.concluida ? 'line-through' : 'none') + '">' + tarefa.texto + '</span' +
-    '<div>' +
-    '<button onclick="concluir(' + tarefa.id + ')">✅</button>' +
-    '<button onclick="deletar(' + tarefa.id + ')" style="margin-left: 5px;">🗑️</button>' +
-    '</div>';
+    const texto = document.createElement('span');
+    texto.textContent = tarefa.texto;
+    texto.style.textDecoration = tarefa.concluida ? 'line-through' : 'none';
+
+    const botoes = document.createElement('div');
+    const botaoConcluir = document.createElement('button');
+    botaoConcluir.type = 'button';
+    botaoConcluir.textContent = '✅';
+    botaoConcluir.setAttribute('aria-label', tarefa.concluida ? 'Reabrir tarefa' : 'Concluir tarefa');
+    botaoConcluir.addEventListener('click', function() { concluir(tarefa.id); });
+
+    const botaoDeletar = document.createElement('button');
+    botaoDeletar.type = 'button';
+    botaoDeletar.textContent = '🗑️';
+    botaoDeletar.setAttribute('aria-label', 'Apagar tarefa');
+    botaoDeletar.style.marginLeft = '5px';
+    botaoDeletar.addEventListener('click', function() { deletar(tarefa.id); });
+
+    botoes.append(botaoConcluir, botaoDeletar);
+    li.append(texto, botoes);
     lista.appendChild(li);
     });
 }

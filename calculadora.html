@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,10 +20,10 @@
 
     <h2>Dados do investimento</h2>
     <form>
-        <p>Valor inicial (R$): <input type="number" id="valorInicial" placeholder="Ex: 1000"></p>
-        <p>Aporte mensal (R$): <input type="number" id="aporteMensal" placeholder="Ex: 200"></p>
-        <p>Taxa de juros mensal (%): <input type="number" id="taxaJuros" placeholder="Ex: 0.8" step="0.01"></p>
-        <p>Tempo (em meses): <input type="number" id="tempoMeses" placeholder="Ex: 24"></p>
+        <p><label for="valorInicial">Valor inicial (R$):</label> <input type="number" id="valorInicial" placeholder="Ex: 1000" min="0" step="0.01" required></p>
+        <p><label for="aporteMensal">Aporte mensal (R$):</label> <input type="number" id="aporteMensal" placeholder="Ex: 200" min="0" step="0.01" required></p>
+        <p><label for="taxaJuros">Taxa de juros mensal (%):</label> <input type="number" id="taxaJuros" placeholder="Ex: 0.8" min="0" step="0.01" required></p>
+        <p><label for="tempoMeses">Tempo (em meses):</label> <input type="number" id="tempoMeses" placeholder="Ex: 24" min="1" step="1" required></p>
         <p><button type="button" onclick="calcular()">Calcular</button></p>
     </form>
 
