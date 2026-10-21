@@ -30,7 +30,7 @@ body {
 }
 
 .identidade {
-  color: #93c5fd;
+  color: #ffffff;
   font-size: 0.8rem;
   font-weight: bold;
   letter-spacing: 2px;
@@ -148,12 +148,12 @@ button {
 }
 
 button:hover {
-  background: #1e40af;
+  background: #e74c3c;
 }
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid #60a5fa;
+  outline: 3px solid #e74c3c;
   outline-offset: 3px;
 }
 
