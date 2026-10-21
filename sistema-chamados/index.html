@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de chamados de suporte técnico.">
+  <title>Sistema de Chamados | Meu Portfólio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="container">
+      <p class="identidade">SUPORTE TI</p>
+      <h1>Sistema de Chamados</h1>
+      <p>Organize solicitações e acompanhe o atendimento técnico.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="resumo" aria-label="Resumo dos chamados">
+      <article class="cartao-resumo">
+        <h2>Total de chamados</h2>
+        <p id="totalChamados">0</p>
+      </article>
+
+      <article class="cartao-resumo">
+        <h2>Em aberto</h2>
+        <p id="chamadosAbertos">0</p>
+      </article>
+
+      <article class="cartao-resumo">
+        <h2>Resolvidos</h2>
+        <p id="chamadosResolvidos">0</p>
+      </article>
+    </section>
+
+    <section class="painel" aria-labelledby="tituloFormulario">
+      <h2 id="tituloFormulario">Cadastrar chamado</h2>
+
+      <form id="formChamado">
+        <div class="campo">
+          <label for="titulo">Título do problema</label>
+          <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            placeholder="Ex.: Computador não liga"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label for="descricao">Descrição</label>
+          <textarea
+            id="descricao"
+            name="descricao"
+            placeholder="Explique o problema..."
+            rows="4"
+            maxlength="1000"
+            required
+          ></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoria" required>
+            <option value="Hardware">Hardware</option>
+            <option value="Software">Software</option>
+            <option value="Rede">Rede / Internet</option>
+            <option value="Acesso">Acesso / Senha</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="prioridade">Prioridade</label>
+          <select id="prioridade" name="prioridade" required>
+            <option value="Baixa">Baixa</option>
+            <option value="Média" selected>Média</option>
+            <option value="Alta">Alta</option>
+          </select>
+        </div>
+
+        <button type="submit">Cadastrar chamado</button>
+      </form>
+    </section>
+
+    <section class="painel" aria-labelledby="tituloLista">
+      <div class="topo-lista">
+        <h2 id="tituloLista">Chamados cadastrados</h2>
+
+        <div class="campo campo-filtro">
+          <label for="filtroStatus">Filtrar por status</label>
+          <select id="filtroStatus">
+            <option value="Todos">Todos</option>
+            <option value="Aberto">Em aberto</option>
+            <option value="Resolvido">Resolvidos</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="mensagemVazia">Nenhum chamado cadastrado ainda.</p>
+      <div id="listaChamados" class="lista-chamados"></div>
+    </section>
+
+    <p class="voltar">
+      <a href="../index.html">Voltar ao portfólio</a>
+    </p>
+  </main>
+
+  <footer class="rodape">
+    <p>Projeto de portfólio desenvolvido para praticar HTML, CSS e JavaScript.</p>
+  </footer>
+</body>
+</html>
