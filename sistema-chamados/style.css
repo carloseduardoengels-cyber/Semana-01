@@ -201,6 +201,11 @@ button:disabled {
   border-left-color: #16a34a;
 }
 
+.chamado.prioridade-alta {
+  border-left-color: #dc2626;
+  background: #fef2f2;
+}
+
 .chamado h3 {
   margin-bottom: 8px;
 }

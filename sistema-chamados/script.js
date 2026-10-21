@@ -88,9 +88,15 @@ function renderizarChamados() {
 
   const filtro = filtroStatus.value;
 
-  const chamadosFiltrados = chamados.filter((chamado) => {
-    return filtro === "Todos" || chamado.status === filtro;
-  });
+const ordemPrioridade = {
+  "Alta": 1,
+  "Média": 2,
+  "Baixa": 3
+};
+
+const chamadosFiltrados = chamados
+  .filter((chamado) => filtro === "Todos" || chamado.status === filtro)
+  .sort((a, b) => ordemPrioridade[a.prioridade] - ordemPrioridade[b.prioridade]);
 
   mensagemVazia.hidden = chamadosFiltrados.length > 0;
 
@@ -103,6 +109,10 @@ function renderizarChamados() {
   chamadosFiltrados.forEach((chamado) => {
     const cartao = document.createElement("article");
     cartao.className = "chamado";
+
+    if (chamado.prioridade === "Alta") {
+  cartao.classList.add("prioridade-alta");
+}
 
     if (chamado.status === "Resolvido") {
       cartao.classList.add("resolvido");
@@ -164,14 +174,17 @@ formulario.addEventListener("submit", (evento) => {
     return;
   }
 
-  const novoChamado = {
-    id: crypto.randomUUID(),
-    titulo: titulo,
-    descricao: descricao,
-    categoria: campoCategoria.value,
-    prioridade: campoPrioridade.value,
-    status: "Aberto"
-  };
+ 
+const novoChamado = {
+  id: crypto.randomUUID(),
+  titulo: titulo,
+  descricao: descricao,
+  categoria: campoCategoria.value,
+  prioridade: campoPrioridade.value,
+  dataCadastro: new Date().toISOString(),
+  status: "Aberto"
+};
+
 
   chamados.unshift(novoChamado);
 
