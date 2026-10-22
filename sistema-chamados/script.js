@@ -94,9 +94,20 @@ const ordemPrioridade = {
   "Baixa": 3
 };
 
+
+  
 const chamadosFiltrados = chamados
   .filter((chamado) => filtro === "Todos" || chamado.status === filtro)
-  .sort((a, b) => ordemPrioridade[a.prioridade] - ordemPrioridade[b.prioridade]);
+  .sort((a, b) => {
+    const diferencaPrioridade =
+      ordemPrioridade[a.prioridade] - ordemPrioridade[b.prioridade];
+
+    if (diferencaPrioridade !== 0) {
+      return diferencaPrioridade;
+    }
+
+    return new Date(a.dataCadastro) - new Date(b.dataCadastro);
+  });
 
   mensagemVazia.hidden = chamadosFiltrados.length > 0;
 
@@ -131,6 +142,24 @@ const chamadosFiltrados = chamados
       "detalhes-chamado"
     );
 
+
+let textoData = "Data de cadastro indisponível";
+
+if (chamado.dataCadastro) {
+  const data = new Date(chamado.dataCadastro);
+
+  if (!Number.isNaN(data.getTime())) {
+    textoData = `Cadastrado em: ${data.toLocaleString("pt-BR")}`;
+  }
+}
+
+const dataCadastro = criarTexto(
+  "p",
+  textoData,
+  "detalhes-chamado"
+);
+
+
     const acoes = document.createElement("div");
     acoes.className = "acoes-chamado";
 
@@ -155,7 +184,7 @@ const chamadosFiltrados = chamados
     });
 
     acoes.append(botaoStatus, botaoExcluir);
-    cartao.append(titulo, descricao, detalhes, acoes);
+    cartao.append(titulo, descricao, detalhes, dataCadastro, acoes);
     listaChamados.appendChild(cartao);
   });
 
