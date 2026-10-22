@@ -32,3 +32,7 @@ O Sistema de Chamados permite registrar e gerenciar chamados de suporte, com inf
 Este projeto faz parte da minha evolução como estudante de Análise e Desenvolvimento de Sistemas. Com ele, pratico manipulação do DOM, funções, arrays, objetos, eventos, filtros, ordenação e armazenamento de dados no navegador.
 
 Estou desenvolvendo minhas habilidades em programação e construindo meu portfólio para oportunidades de estágio na área de tecnologia.
+
+## Captura de tela
+
+![Tela do Sistema de Chamados](sistema-chamados.png)
