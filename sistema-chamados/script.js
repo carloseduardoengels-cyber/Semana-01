@@ -11,6 +11,7 @@ const campoPrioridade = document.querySelector("#prioridade");
 const listaChamados = document.querySelector("#listaChamados");
 const mensagemVazia = document.querySelector("#mensagemVazia");
 const filtroStatus = document.querySelector("#filtroStatus");
+const pesquisaChamados = document.querySelector("#pesquisaChamados");
 
 const totalChamados = document.querySelector("#totalChamados");
 const chamadosAbertos = document.querySelector("#chamadosAbertos");
@@ -96,8 +97,15 @@ const ordemPrioridade = {
 
 
   
+
+  const termoPesquisa = pesquisaChamados.value.trim().toLowerCase();
+
 const chamadosFiltrados = chamados
   .filter((chamado) => filtro === "Todos" || chamado.status === filtro)
+  .filter((chamado) =>
+    chamado.titulo.toLowerCase().includes(termoPesquisa) ||
+    chamado.descricao.toLowerCase().includes(termoPesquisa)
+  )
   .sort((a, b) => {
     const diferencaPrioridade =
       ordemPrioridade[a.prioridade] - ordemPrioridade[b.prioridade];
@@ -276,6 +284,7 @@ function excluirChamado(id) {
 
 // 10. Atualizar a lista quando o filtro mudar
 filtroStatus.addEventListener("change", renderizarChamados);
+pesquisaChamados.addEventListener("input", renderizarChamados);
 
 // 11. Mostrar os chamados ao abrir a página
 renderizarChamados();
