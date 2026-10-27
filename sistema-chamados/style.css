@@ -282,3 +282,55 @@ button:disabled {
     min-width: 0;
   }
 }
+
+
+/* Formulário de edição de chamados */
+.formulario-edicao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f8fafc;
+}
+
+.formulario-edicao input,
+.formulario-edicao textarea,
+.formulario-edicao select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.formulario-edicao textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.formulario-edicao button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.formulario-edicao button[type="submit"] {
+  background-color: #2563eb;
+  color: white;
+}
+
+.formulario-edicao button[type="button"] {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.formulario-edicao button:hover {
+  opacity: 0.85;
+}
+

@@ -186,12 +186,107 @@ const dataCadastro = criarTexto(
     const botaoExcluir = document.createElement("button");
     botaoExcluir.textContent = "Excluir";
     botaoExcluir.className = "botao-excluir";
+    const botaoEditar = document.createElement("button");
+    botaoEditar.textContent = "Editar";
+    botaoEditar.className = "botao-editar";
 
     botaoExcluir.addEventListener("click", () => {
       excluirChamado(chamado.id);
     });
 
-    acoes.append(botaoStatus, botaoExcluir);
+
+botaoEditar.addEventListener("click", () => {
+  const formularioEdicao = document.createElement("form");
+  formularioEdicao.className = "formulario-edicao";
+
+  const campoTituloEdicao = document.createElement("input");
+  campoTituloEdicao.type = "text";
+  campoTituloEdicao.value = chamado.titulo;
+  campoTituloEdicao.required = true;
+  campoTituloEdicao.placeholder = "Título do chamado";
+
+  const campoDescricaoEdicao = document.createElement("textarea");
+  campoDescricaoEdicao.value = chamado.descricao;
+  campoDescricaoEdicao.required = true;
+  campoDescricaoEdicao.placeholder = "Descrição do chamado";
+
+  const campoCategoriaEdicao = document.createElement("select");
+
+  const categorias = [
+  "Hardware",
+  "Software",
+  "Rede / Internet",
+  "Acesso / Senha",
+  "Outro"
+  ];
+
+  categorias.forEach((categoria) => {
+    const opcao = document.createElement("option");
+    opcao.value = categoria;
+    opcao.textContent = categoria;
+    campoCategoriaEdicao.appendChild(opcao);
+  });
+
+  campoCategoriaEdicao.value = chamado.categoria;
+
+  const campoPrioridadeEdicao = document.createElement("select");
+
+  ["Baixa", "Média", "Alta"].forEach((prioridade) => {
+    const opcao = document.createElement("option");
+    opcao.value = prioridade;
+    opcao.textContent = prioridade;
+    campoPrioridadeEdicao.appendChild(opcao);
+  });
+
+  campoPrioridadeEdicao.value = chamado.prioridade;
+
+  const botaoSalvarEdicao = document.createElement("button");
+  botaoSalvarEdicao.type = "submit";
+  botaoSalvarEdicao.textContent = "Salvar alterações";
+
+  const botaoCancelarEdicao = document.createElement("button");
+  botaoCancelarEdicao.type = "button";
+  botaoCancelarEdicao.textContent = "Cancelar";
+
+  formularioEdicao.append(
+    campoTituloEdicao,
+    campoDescricaoEdicao,
+    campoCategoriaEdicao,
+    campoPrioridadeEdicao,
+    botaoSalvarEdicao,
+    botaoCancelarEdicao
+  );
+
+  const cartao = botaoEditar.closest(".chamado");
+
+  if (!cartao) {
+    alert("Não foi possível encontrar o chamado para editar.");
+    return;
+  }
+
+  cartao.appendChild(formularioEdicao);
+  botaoEditar.disabled = true;
+
+  botaoCancelarEdicao.addEventListener("click", () => {
+    formularioEdicao.remove();
+    botaoEditar.disabled = false;
+  });
+
+  formularioEdicao.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+
+    chamado.titulo = campoTituloEdicao.value.trim();
+    chamado.descricao = campoDescricaoEdicao.value.trim();
+    chamado.categoria = campoCategoriaEdicao.value;
+    chamado.prioridade = campoPrioridadeEdicao.value;
+
+    salvarChamados();
+    renderizarChamados();
+  });
+});
+
+
+    acoes.append(botaoStatus, botaoExcluir, botaoEditar);
     cartao.append(titulo, descricao, detalhes, dataCadastro, acoes);
     listaChamados.appendChild(cartao);
   });
